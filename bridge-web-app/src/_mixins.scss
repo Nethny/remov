@@ -1,0 +1,90 @@
+@import "common";
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+
+
+@mixin rounded($border) {
+  -webkit-border-radius: $border;
+  -moz-border-radius: $border;
+  border-radius: $border;
+}
+
+@mixin shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin button {
+  font-family: 'Poppins', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 10px;
+  display: inline-block;
+  padding: 1em 2em;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  @include rounded(.5em);
+  //this determines Mozilla to show the padding
+  border: solid 3px rgba($color_primary, 0.5);
+  color: #FFF;
+  background-color: $color_primary;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  &:disabled,
+  &[disabled]{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &[disabled]:active {
+    top: 0;
+  }
+
+  .icon {
+    vertical-align: middle;
+  }
+  .text {
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+}
+
+@function url-friendly-colour($colour) {
+  @return '%23' + str-slice('#{$colour}', 2, -1)
+}
+
+@mixin loading-spinner($time: 1.5s, $spinner_size: 15px) {
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  animation-play-state: running;
+  opacity: 1;
+  position: relative;
+  vertical-align: middle;
+  animation: $time linear infinite spinner;
+  width: $spinner_size;
+  height: $spinner_size;
+  will-change: transform;
+}
+
+.success {
+  color: $color_green;
+}

@@ -1,0 +1,9 @@
+{
+  "AddrBridge_RMRK": "HeReMovoG8uXkhsdJTWCjy7yhmaPFSeZtekqt54m6mEXQya",
+  "AddrHub": "0xab51e296f3cafaBeb20b26EfcFEC02Be52F26C85",
+  "HMAC_mysecret": "",
+  "Delay": 10,
+  "Port": "8000",
+  "PrivateKey": "",
+  "RPC": "https://rpc.testnet.moonbeam.network"
+}

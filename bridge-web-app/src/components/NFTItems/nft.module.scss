@@ -1,0 +1,62 @@
+@import "../../common";
+@import "../../mixins";
+
+$border_size: 5px;
+
+.imageContainer {
+  margin-top: 40px;
+
+  .scrollable {
+    max-height: 500px;
+    overflow-y: auto;
+
+    .loadingSpinner {
+      display: inline-block;
+      @include loading-spinner(1.5s, 30px);
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .nftItem {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      li {
+        width: $NFT_image_width;
+        height: $NFT_image_height;
+        border: none;
+        display: block;
+        margin: 20px;
+
+        .image {
+          display: block;
+          width: $NFT_image_width;
+          height: $NFT_image_height;
+          padding: $border_size;
+          opacity: 0.8;
+        }
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        input[type="radio"]:checked + label {
+          .image {
+            border: $border_size solid $color_red;
+            padding: 0;
+            @include rounded(15px);
+            background-color: rgba($color_primary, 0.2);
+            opacity: 1;
+            transition: opacity 0.2s linear;
+
+            IMG {
+              @include rounded(10px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

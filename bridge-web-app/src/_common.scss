@@ -1,0 +1,15 @@
+$color_lightest: #F1FAEE;
+$color_base_light: #A8DADC;
+$color_primary: #457B9D;
+$color_red: #E63946;
+$color_green: #70a11a;
+$color_contrast: #1D3557;
+
+$color_background: #F1FAEE;
+
+// NFT image
+$NFT_image_height_numeric: 200;
+$NFT_image_height: #{$NFT_image_height_numeric}px;
+$NFT_image_width: #{($NFT_image_height_numeric * 720) / 1005}px; // original size is 720x1005, we use the same ratio
+
+

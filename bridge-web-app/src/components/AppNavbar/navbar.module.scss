@@ -1,0 +1,80 @@
+@import "../../common";
+@import "../../mixins";
+
+$navbar_height: 80;
+$corner_width: $navbar_height - 30;
+
+@mixin corner() {
+  content: "";
+  background-color: transparent;
+  height: #{$navbar_height}px;
+  width: #{$corner_width}px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.navbar {
+  margin-right: auto;
+  margin-left: auto;
+  height: #{$navbar_height}px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  background-color: $color_lightest;
+  font-size: 1.2em;
+  @include rounded(20px);
+  position: relative;
+
+  .navLink {
+    height: 100%;
+    width: 40%;
+    color: $color_primary;
+    text-decoration: none;
+    display: block;
+    &:first-child {
+      margin-right: 20%;
+    }
+
+    span {
+      z-index: 2;
+      line-height: 4em;
+    }
+
+    svg {
+      vertical-align: sub;
+    }
+
+    &.left {
+      text-align: right;
+    }
+    &.right {
+      text-align: left;
+    }
+  }
+
+  .active {
+    font-weight: bold;
+    background-color: $color_base_light;
+
+    &.left {
+      @include rounded(20px 0 0 20px);
+      &:after {
+        @include corner();
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='#{url-friendly-colour($color_base_light)}' points='0,0 #{$corner_width},0 0,#{$navbar_height}'/></svg>");
+        left: 40%;
+      }
+    }
+
+    &.right{
+      @include rounded(0 20px 20px 0);
+      &:before {
+        @include corner();
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='#{url-friendly-colour($color_base_light)}' points='#{$corner_width},0 #{$corner_width},#{$navbar_height} 0,#{$navbar_height}'/></svg>");
+        right: 40%;
+      }
+    }
+  }
+
+}

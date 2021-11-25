@@ -1,0 +1,81 @@
+@import "../../common";
+@import "../../mixins";
+
+
+$round_corner: 10px;
+$transition_speed: 0.5s;
+$border_size: 4px;
+$left_column_width: 100;
+
+.stepByStep {
+  margin-bottom: 100px;
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    counter-reset: item;
+
+
+    .step {
+      background-color: #FFF;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='#{url-friendly-colour($color_primary)}' points='0,0 #{$left_column_width},0 0,150'/></svg>");
+      counter-increment: item;
+      @include rounded($round_corner);
+      margin-top: 30px;
+      padding: 40px 100px 40px 150px;
+      position: relative;
+      min-height: 15px;
+      max-height: 15px;
+      transition: max-height $transition_speed ease-out, box-shadow $transition_speed ease-out;
+      @include shadow(6px 10px 0px 0px $color_primary);
+
+      .content {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity $transition_speed linear;
+        transition-delay: $transition_speed;
+
+        .icon {
+          height: 1em;
+          width: 1em;
+        }
+      }
+
+      &:before {
+        content: counter(item);
+        font-size: 16px;
+        background-color: rgba(#FFF, 0.8);
+        color: $color_primary;
+        font-weight: bold;
+        @include rounded( ($round_corner - 4) 0 0 ($round_corner - 4));
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: #{$left_column_width}px;
+        text-align: center;
+        padding-top: 30px;
+        transition: font-size $transition_speed ease-out;
+      }
+
+      &.active {
+        min-height: 120px;
+        max-height: 600px;
+        @include shadow(14px 17px 0px 0px $color_primary);
+
+        .content {
+         visibility: visible;
+          opacity: 1;
+        }
+
+        &:before {
+          font-size: 32px;
+          text-shadow: 2px 3px #FFF;
+        }
+      }
+
+     }
+  }
+
+}

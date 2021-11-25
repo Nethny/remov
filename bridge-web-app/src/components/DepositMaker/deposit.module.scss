@@ -1,0 +1,6 @@
+@import "../../mixins";
+
+.orderButton {
+  @include button;
+  margin-left: 0;
+}

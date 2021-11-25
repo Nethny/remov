@@ -1,0 +1,101 @@
+@import "common";
+@import "mixins";
+
+$body-bg-image: linear-gradient(160deg, shade-color($color_base_light, 10%), shade-color($color_lightest, 10%), shade-color($color_base_light, 5%)) !default;
+
+.footer {
+  width: 100%;
+  height: 60px;
+  background-color: $color_red;
+  margin-top: -60px;
+
+  .text {
+    color: #FFF;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8em;
+    vertical-align: middle;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+  }
+}
+
+.appBackground {
+  min-height: 100%;
+  display: block;
+
+  .divider {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+    .dividerPusher {
+      display: block;
+      min-height: 300px;
+      height: 600px;
+      background-color: $color_red;
+    }
+
+    svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 215px;
+    }
+
+    .shapeFill {
+      fill: $color_red;
+    }
+
+  }
+
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.app {
+  max-width: 1400px;
+  min-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+
+  .logo {
+    margin-top: 10px;
+    margin-left: 0px;
+
+    div {
+      font-family: 'Fredoka One', cursive;
+      text-shadow: 8px 5px $color_primary;
+      font-size: 6em;
+
+      a {
+        text-decoration: none;
+        color: #FFF;
+        &:hover {
+          color: $color_lightest;
+        }
+      }
+    }
+
+    p {
+      color: $color_base_light;
+    }
+  }
+
+  .navbar {
+    margin-top: 100px;
+  }
+}

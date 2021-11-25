@@ -1,0 +1,39 @@
+@import "../../common";
+@import "../../mixins";
+
+.container {
+   height: $NFT_image_height;
+   width:$NFT_image_width;
+
+   .loadingSpinner {
+      height: $NFT_image_height;
+      width: $NFT_image_width;
+      text-align: center;
+      background-color: $color_lightest;
+      .icon {
+         margin-top: #{($NFT_image_height_numeric / 2) - 15}px;
+         @include loading-spinner(1.5s, 30px);
+         color: $color_red;
+      }
+   }
+
+   .hidden {
+      display: none;
+      opacity: 0;
+   }
+
+   .visible {
+      display: block;
+   }
+
+   .loadableImage {
+      opacity: 1;
+      transition: opacity 1s linear;
+      height: $NFT_image_height;
+      width: $NFT_image_width;
+   }
+
+   .error {
+      color: $color_red;
+   }
+}
