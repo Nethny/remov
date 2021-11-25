@@ -3,7 +3,7 @@
 
 Inspiration
 
-     Our aim is to expand the capabilities of blockchain and make a secure way for transferring NFT between RMRK and MOVR blockchain.
+     Our aim is to expand the capabilities of blockchain and make a secure way \nfor transferring NFT between RMRK and MOVR blockchain.
 
 The Bridge
 
