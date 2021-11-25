@@ -18,13 +18,13 @@ import "Counters.sol";
 
 //@author Nethny [TIIK]
 /*
-	This contract allows you to transfer NFT MRK 
-	to the MAVR network, assigning to the specified 
+	This contract allows you to transfer NFT RMRK 
+	to the MOVR network, assigning to the specified 
 	owner specified in the RMRK messages 
 	in the Kusama network.
 	This contract does not implement the full 
-	functionality of the RMRK TAE, but allows 
-	you to transfer ownership rights to TAE, 
+	functionality of the RMRK NFT, but allows 
+	you to transfer ownership rights to NFT, 
 	which allows them to be used in the MOVR ecosystem
 	
 	Warning: ERC721 has been changed!
