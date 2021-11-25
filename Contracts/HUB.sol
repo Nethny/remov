@@ -144,7 +144,7 @@ contract Hub is ERC721, Ownable{
 	//Enables and disables NFT transfer payment.
     bool private _paymentsOn = false; 
     
-    //Functions
+    //Functions:
     
 	//Returns overpayments for the calling address.
     function myLostMoney()public view returns(uint){
