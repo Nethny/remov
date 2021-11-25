@@ -32,8 +32,6 @@ interface NFTDetails {
     image: string; // URL
 }
 
-const rmrkApiBaseURL = "https://kanaria.rmrk.app";
-
 // expected one of these params
 interface ItemsProps {
     walletAddress?: string;
@@ -145,7 +143,7 @@ const NftItems: FC<ItemsProps> = (props: ItemsProps) => {
 }
 
 function getAccountBirds(address: string): Promise<ImageDetails[]> {
-    return fetch(`${rmrkApiBaseURL}/api/rmrk2/account-birds/${address}`,{mode: 'cors'})
+    return fetch(`${process.env.RMRK_KANARIA_API_ACCOUNT_BIRDS}/${address}`,{mode: 'cors'})
         // the JSON body is taken from the response
         .then(res => res.json())
         .then(res => {
@@ -164,7 +162,7 @@ function getAccountBirds(address: string): Promise<ImageDetails[]> {
 
 // load NFT details by its UUID
 function loadNFTDetails(UUID: string): Promise<NFTDetails> {
-    return fetch(`${rmrkApiBaseURL}/api/rmrk2/nft/${UUID}`,{mode: 'cors'})
+    return fetch(`${process.env.RMRK_KANARIA_API_NFT_DETAILS}/${UUID}`,{mode: 'cors'})
         .then(res => res.json())
         .then((res) => res as NFTDetails)
 }

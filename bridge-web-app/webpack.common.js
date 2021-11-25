@@ -1,7 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { ProvidePlugin } = require("webpack");
-// const { ModuleFederationPlugin } = require("webpack").container;
 const DotEnv = require("dotenv-webpack");
 
 module.exports = {
@@ -104,16 +102,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
         }),
-        /*
-        new ProvidePlugin({
-            process: "process/browser",
-        }),
         new DotEnv({
-            path: "./config/env/.env", // load this now instead of the ones in '.env'
             safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
             systemvars: false, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
             silent: false, // hide any errors
             defaults: false, // load '.env.defaults' as the default values if empty.
-        }),*/
+        }),
     ],
 }
