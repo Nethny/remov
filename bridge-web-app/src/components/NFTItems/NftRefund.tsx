@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import StatusBar, {asDone, asError, asProgress, BarProps, StatusType} from "../StatusBar/StatusBar";
 import styles from "../DepositMaker/deposit.module.scss";
-import {MOONBASE_CONTRACT} from "../../constants";
+import {MOONBASE_CONTRACT, TRANSACTION_VALUE_IN_ETHER} from "../../constants";
 import {CornerDownLeft, Check} from "react-feather";
 import {switchMetamaskToMoonbeamNetwork} from "../../wallets/connectors";
 import {ethers} from "ethers";
@@ -48,7 +48,7 @@ const NftRefund: FC = () => {
                 let overrides = {
                     gasLimit: 10000000,
                     gasPrice: gasPrice,
-                    value: ethers.utils.parseUnits('0.021', 'ether'),
+                    value: ethers.utils.parseUnits(TRANSACTION_VALUE_IN_ETHER, 'ether'),
                 };
 
                 // call our contract

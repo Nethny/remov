@@ -7,7 +7,7 @@ import {getSelectedNFT, getSelectedMetamaskAddress} from "../../store/removSelec
 import {setCurrentStepNumber, setSelectedMetamaskAddress} from '../../store/removReducerSlice';
 import {DollarSign} from "react-feather";
 import { setUpMetamask, switchMetamaskToMoonbeamNetwork} from "../../wallets/connectors";
-import {MOONBASE_CONTRACT, TEST_MOONBEAM_NETWORK_ID} from "../../constants";
+import {MOONBASE_CONTRACT, TEST_MOONBEAM_NETWORK_ID, TRANSACTION_VALUE_IN_ETHER} from "../../constants";
 import contractMoonbaseJSON from "../../contracts/moonbase.contract.json";
 import StatusBar, {asDone, asError, asProgress, BarProps, StatusType} from "../StatusBar/StatusBar";
 
@@ -71,7 +71,7 @@ const DepositMaker: FC = () => {
                 let overrides = {
                     gasLimit: 10000000,
                     gasPrice: gasPrice,
-                    value: ethers.utils.parseUnits('0.021', 'ether'),
+                    value: ethers.utils.parseUnits(TRANSACTION_VALUE_IN_ETHER, 'ether'),
                 };
 
                 let validMetamaskAddress = ethers.utils.getAddress(selectedMetamaskAddress);
