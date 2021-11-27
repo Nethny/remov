@@ -10,13 +10,23 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                test: /\.(css)$/,
-                use: [MiniCssExtractPlugin.loader,'css-loader']
+                test: /\.(scss)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
             }
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].[contenthash].css",
+            chunkFilename: "[id].[contenthash].css",
+        }),
         new DotEnv({
             path: `./.env.prod`,
             safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
