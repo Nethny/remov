@@ -92,7 +92,7 @@ const MovrNftSelector: FC = () => {
             })
             .catch((err:any) => {
                 console.log(err);
-                setCurrentState(asError("error loading NFTs: " + err));
+                setCurrentState(asError("error loading NFTs: " + err.message));
             });
 
     }, []);
