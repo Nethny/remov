@@ -1,6 +1,7 @@
 {
   "name": "bridge-web-app",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",

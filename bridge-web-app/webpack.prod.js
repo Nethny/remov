@@ -22,8 +22,6 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
             filename: "[name].[contenthash].css",
             chunkFilename: "[id].[contenthash].css",
         }),
@@ -36,6 +34,7 @@ module.exports = merge(common, {
         }),
     ],
     optimization: {
+        minimize: true,
         minimizer: [
             new TerserPlugin({
                 // Use multi-process parallel running to improve the build speed
