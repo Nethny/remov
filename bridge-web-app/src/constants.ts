@@ -1,17 +1,8 @@
-// polkadot RPC, that the Polkadot.js extension talks to
 export const WS_PROVIDER_URLS_PROD = process.env.WS_RPC_PROVIDER_URL || "wss://kusama-rpc.polkadot.io";
-
-// bridge app, that sits in the kusama network and responsible for the NFT transferring
 export const MOVR_BRIDGE_ADDRESS_KUSAMA = process.env.KUSAMA_BRIDGE_ADDRESS || "";
-
-// MOVR contract, that is responsible for game logic, for the deposit (preorder) and other stuff
 export const MOONBASE_CONTRACT = process.env.MOONBASE_CONTRACT || "";
-
-// Chain ID. In order to avoid sending tokens to real network, we force Metamask to switch to
-// exactly this network. Must be the numeric value. Specifically for the Moonbeam, please refer to the docs:
-// https://docs.moonbeam.network/builders/get-started/moonbase/#chain-id
 const moonbeamNetworkNumericID:number = parseInt(process.env.MOONBEAM_NETWORK_ID || "0", 10);
 export const TEST_MOONBEAM_NETWORK_ID = `0x${Number(moonbeamNetworkNumericID).toString(16)}`;
-
-// Every transaction costs something, this is the value for a write operations, in ether, such as "0.001"
 export const TRANSACTION_VALUE_IN_ETHER = process.env.VALUE_OF_CONTRACT_TRANSACTION_ETHER || "0";
+export const RMRK_KANARIA_API_ACCOUNT_BIRDS = process.env.RMRK_KANARIA_API_ACCOUNT_BIRDS;
+export const RMRK_KANARIA_API_NFT_DETAILS = process.env.RMRK_KANARIA_API_NFT_DETAILS;

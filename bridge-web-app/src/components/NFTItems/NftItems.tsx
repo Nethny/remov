@@ -5,6 +5,7 @@ import {getSelectedNFT} from "../../store/removSelectors";
 import styles from "./nft.module.scss";
 import LoadableImage from "../LoadableImage/LoadableImage";
 import StatusBar, {StatusType} from "../StatusBar/StatusBar";
+import {RMRK_KANARIA_API_ACCOUNT_BIRDS, RMRK_KANARIA_API_NFT_DETAILS} from "../../constants";
 
 interface AccountBird {
     id: string // NFT id
@@ -143,7 +144,7 @@ const NftItems: FC<ItemsProps> = (props: ItemsProps) => {
 }
 
 function getAccountBirds(address: string): Promise<ImageDetails[]> {
-    return fetch(`${process.env.RMRK_KANARIA_API_ACCOUNT_BIRDS}/${address}`,{mode: 'cors'})
+    return fetch(`${RMRK_KANARIA_API_ACCOUNT_BIRDS}/${address}`,{mode: 'cors'})
         // the JSON body is taken from the response
         .then(res => res.json())
         .then(res => {
@@ -162,7 +163,7 @@ function getAccountBirds(address: string): Promise<ImageDetails[]> {
 
 // load NFT details by its UUID
 function loadNFTDetails(UUID: string): Promise<NFTDetails> {
-    return fetch(`${process.env.RMRK_KANARIA_API_NFT_DETAILS}/${UUID}`,{mode: 'cors'})
+    return fetch(`${RMRK_KANARIA_API_NFT_DETAILS}/${UUID}`,{mode: 'cors'})
         .then(res => res.json())
         .then((res) => res as NFTDetails)
 }

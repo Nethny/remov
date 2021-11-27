@@ -102,11 +102,5 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
         }),
-        new DotEnv({
-            safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
-            systemvars: false, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
-            silent: false, // hide any errors
-            defaults: false, // load '.env.defaults' as the default values if empty.
-        }),
     ],
 }
